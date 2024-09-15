@@ -22,3 +22,38 @@ export const getAll = async (req, resp) => {
     console.log("Error  =>", error);
   }
 };
+export const getOne = async (req, resp) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return resp.status(404).json({ msg: "User not exist." });
+    }
+    const user = await User.findById(id);
+    return resp.status(200).json(user);
+  } catch (error) {
+    console.log("Error  =>", error);
+  }
+};
+
+export const deleteOne = async (req, resp) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return resp.status(404).json({ msg: "User not exist." });
+    }
+    let deletedUser = await User.findByIdAndDelete(id);
+    return resp.status(200).json({ msg: "User deleted successfully" });
+  } catch (error) {}
+};
+export const updateOne = async (req, resp) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return resp.status(404).json({ msg: "User not exist." });
+    }
+    let upDatedUser = await User.findByIdAndUpdate(id, req.body, {
+      return: true,
+    });
+    resp.status(200).json(upDatedUser);
+  } catch (error) {}
+};
