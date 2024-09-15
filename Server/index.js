@@ -3,7 +3,7 @@ import bodyparser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
+import route from "./routes/route.js";
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
@@ -20,3 +20,4 @@ mongoose
     });
   })
   .catch((error) => console.log("Error ", error));
+app.use("/api", route);
