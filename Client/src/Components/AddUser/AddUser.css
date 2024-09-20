@@ -1,0 +1,35 @@
+.AddUser{
+    width: 60%;
+    margin: 60px auto;
+    background-color: #E5D9F2;
+    padding: 40px;
+    border-radius: 10px;
+}
+.BackBtn{
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+.AddUserForm{
+    width: 90%;
+    margin-top: 15px;
+    text-align: center;
+}
+.AddUserForm input{
+    width: 85%;
+    margin: 8px;
+    padding: 7px;
+    border-radius: 8px;
+    border: none;
+}
+.AddUserForm .AddBtn{
+    width: 85%;
+    margin: 8px;
+    padding: 7px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

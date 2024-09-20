@@ -1,0 +1,48 @@
+.UserTable{
+    width: 60%;
+    margin: 60px auto;
+    background-color: #E5D9F2;
+    padding: 40px;
+    border-radius: 10px;
+}
+.AddBtn{
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    
+}
+.UserTable table{
+    width: 90%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 15px;
+}
+table thead tr th{
+    background-color: rgb(22, 29, 111);
+    padding: 10px;
+    color: white;
+}
+table tbody tr td{
+    padding: 8px;
+}
+table tbody tr td .UpdateBtn{
+    background-color: green;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+table tbody tr td button{
+    background-color: red;
+    text-decoration: none;
+    padding: 7px 9px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-right: 5px;
+}
