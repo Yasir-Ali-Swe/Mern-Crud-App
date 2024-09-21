@@ -15,6 +15,17 @@ const User = () => {
     };
     fetchData();
   }, []);
+  const deleteUser = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8000/api/deleteOne/${id}`
+      );
+      // console.log(response.data["msg"]);
+      setUser((prevUsers) => prevUsers.filter((user) => user._id !== id));
+    } catch (error) {
+      console.log("Error occurred => ", error);
+    }
+  };
   return (
     <div className="UserTable">
       <Link to={"/add"} className="AddBtn">
@@ -32,13 +43,13 @@ const User = () => {
         <tbody>
           {users.map((user, index) => {
             return (
-              <tr key={user.id}>
+              <tr key={user._id}>
                 <td>{index + 1}</td>
                 <td>{`${user.fname} ${user.lname}`}</td>
                 <td>{user.email}</td>
                 <td>
                   {" "}
-                  <button>Delete</button>
+                  <button onClick={() => deleteUser(user._id)}>Delete</button>
                   <Link to={`./update/${user._id}`} className="UpdateBtn">
                     Update
                   </Link>

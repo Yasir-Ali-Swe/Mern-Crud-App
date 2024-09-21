@@ -1,16 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./UpdateUser.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 const UpdateUser = () => {
+  const { id } = useParams();
+  const initialUser = {
+    fname: "",
+    lname: "",
+    email: "",
+    password: "",
+  };
+  const [user, setUser] = useState(initialUser);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/api/getOne/${id}`
+        );
+        console.log(response);
+        setUser(response.data);
+      } catch (error) {
+        console.log("Error Occurred -> ", error);
+      }
+    };
+    fetchUserData();
+  }, [id]);
+  const handlleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+  };
+  const submitFormData = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/updateOne/${id}`,
+        user
+      );
+      console.log(response);
+    } catch (error) {
+      console.log("Error Occurred -> ", error);
+    }
+  };
   return (
     <div className="UpdateUser">
       <Link to={"/"} className="BackBtn">
         Back
       </Link>
-      <form className="UpdateUserForm">
-        <input type="text" name="fname" placeholder="FirstName" />
-        <input type="text" name="lname" placeholder="LastName" />
-        <input type="text" name="email" placeholder="Email" />
+      <form className="UpdateUserForm" onSubmit={submitFormData}>
+        <input
+          type="text"
+          name="fname"
+          value={user.fname}
+          placeholder="FirstName"
+          onChange={handlleInputChange}
+        />
+        <input
+          type="text"
+          name="lname"
+          value={user.lname}
+          placeholder="LastName"
+          onChange={handlleInputChange}
+        />
+        <input
+          type="text"
+          name="email"
+          value={user.email}
+          placeholder="Email"
+          onChange={handlleInputChange}
+        />
         <button className="UpdateBtn">Update User</button>
       </form>
     </div>
