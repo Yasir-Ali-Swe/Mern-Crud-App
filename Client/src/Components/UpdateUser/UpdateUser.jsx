@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./UpdateUser.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 import axios from "axios";
 const UpdateUser = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const initialUser = {
     fname: "",
@@ -36,7 +38,10 @@ const UpdateUser = () => {
         `http://localhost:8000/api/updateOne/${id}`,
         user
       );
-      console.log(response);
+      toast.success("User Updated Successfully", { position: "top-right" });
+      setUser(initialUser);
+      navigate("/");
+      // console.log(response);
     } catch (error) {
       console.log("Error Occurred -> ", error);
     }

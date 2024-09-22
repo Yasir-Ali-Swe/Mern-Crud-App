@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./AddUser.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 const AddUser = () => {
+  // const navigate = useNavigate();
   const User = {
     fname: "",
     lname: "",
@@ -22,8 +24,10 @@ const AddUser = () => {
     e.preventDefault();
     try {
       let response = await axios.post("http://localhost:8000/api/create", user);
-      console.log(response);
+      // console.log(response);
+      toast.success("User Add Successfully", { position: "top-right" });
       setUser(User);
+      // navigate("/");
     } catch (error) {
       Console.log("Error Occurred => ", error);
     }

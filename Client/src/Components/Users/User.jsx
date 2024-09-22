@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./User.css";
+import toast from "react-hot-toast";
 const User = () => {
   const [users, setUser] = useState([]);
   useEffect(() => {
@@ -22,6 +23,7 @@ const User = () => {
       );
       // console.log(response.data["msg"]);
       setUser((prevUsers) => prevUsers.filter((user) => user._id !== id));
+      toast.success("User Deleted Successfully", { position: "top-right" });
     } catch (error) {
       console.log("Error occurred => ", error);
     }
