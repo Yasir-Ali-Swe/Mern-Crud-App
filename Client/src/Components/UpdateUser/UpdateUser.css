@@ -1,31 +1,35 @@
-.UpdateUser{
+.UpdateUser {
     width: 60%;
     margin: 60px auto;
     background-color: #E5D9F2;
     padding: 40px;
     border-radius: 10px;
-}
-.BackBtn{
+  }
+  
+  .BackBtn {
     background-color: green;
     border-radius: 5px;
     cursor: pointer;
     color: white;
     text-decoration: none;
     padding: 5px;
-}
-.UpdateUserForm{
+  }
+  
+  .UpdateUserForm {
     width: 90%;
     margin-top: 15px;
     text-align: center;
-}
-.UpdateUserForm input{
+  }
+  
+  .UpdateUserForm input {
     width: 85%;
     margin: 8px;
     padding: 7px;
     border-radius: 8px;
     border: none;
-}
-.UpdateUserForm .UpdateBtn{
+  }
+  
+  .UpdateUserForm .UpdateBtn {
     width: 85%;
     margin: 8px;
     padding: 7px;
@@ -34,4 +38,4 @@
     cursor: pointer;
     background-color: green;
     color: white;
-}
+  }
