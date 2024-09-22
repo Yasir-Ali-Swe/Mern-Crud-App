@@ -19,6 +19,6 @@ This project is a simple CRUD (Create, Read, Update, Delete) web application bui
 - **Visual Studio Code:** Code editor for development.
 
 ## Install Dependencies
-- Run the following command in the project root to install all required dependencies:
+- Run the following command in the project root directroy to install all required dependencies:
 - **npm install**
 
